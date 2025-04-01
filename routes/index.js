@@ -15,5 +15,8 @@ router.get('/products/add', productController.renderAddForm);
 router.post('/products/add', productController.addProduct);
 router.get('/products/delete/:id', productController.deleteProduct);
 
-router.get('/products/:productId/review/add', reviewController.renderAddReviewForm)
+router.get('/products/:productId/review/add', reviewController.renderAddReviewForm);
+router.post('/products/:productId/review/add', reviewController.addReview);
+router.get('/reviews/edit/:id', reviewController.renderEditReviewForm);
+router.post('/reviews/edit/:id', reviewController.updateReview);
 module.exports = router;
