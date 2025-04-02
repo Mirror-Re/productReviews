@@ -49,3 +49,12 @@ module.exports.updateReview = async function(req, res) {
         res.redirect(`/products/profile/${review.product_id}`);
 }
 
+module.exports.deleteReview = async function(req, res){
+    const review = await Review.findByPk(req.params.id);
+    await Review.destroy({
+        where: {
+            id: req.params.id
+        }
+    });
+    res.redirect(`/products/profile/${review.product_id}`);
+}
